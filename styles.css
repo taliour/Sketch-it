@@ -74,3 +74,11 @@ body {
 .dimension{
     border: solid #7F5A83 2px;
 }
+.customDimension {
+    font-size: 28px;
+    color: black;
+    background-color: #7F5A83;
+    border: solid black 3px;
+    border-radius: 15px;
+    margin: 10px;
+}

@@ -2,6 +2,7 @@ const canvas = document.querySelector(".canvas")
 const image16 = document.querySelector(".image-16");
 const image32 = document.querySelector(".image-32");
 const image64 = document.querySelector(".image-64");
+const customDimension = document.querySelector(".customDimension");
 
 //variables and arrays
 let canvasSize = 16;
@@ -31,6 +32,17 @@ function clearCanvas(){
         canvas.removeChild(canvas.firstChild);
     }
 }
+//Prompts the user for custom dimension and accepts only valid values
+function getCustomDimension(){
+    let validChoice = false;
+    while (!validChoice){
+        canvasSize = prompt("Choose a number between 4 and 100")
+        if (canvasSize<= 100 && canvasSize>0){
+            validChoice = true;
+        }
+    }
+
+}
 
 createCanvas();
 
@@ -38,6 +50,9 @@ createCanvas();
 image16.addEventListener("click",() => { clearCanvas(); canvasSize=16; createCanvas();});
 image32.addEventListener("click",() => { clearCanvas(); canvasSize=32; createCanvas();});
 image64.addEventListener("click",() => { clearCanvas(); canvasSize=64; createCanvas();});
+
+//Ask user for custom dimension when button pressed and resize the canvas for valid values only
+customDimension.addEventListener("click", () => {getCustomDimension(); clearCanvas(); createCanvas();});
 
 //Highligt dimension choice image when hovered
 image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid black 2px";});
