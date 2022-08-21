@@ -52,6 +52,11 @@ body {
     justify-content: center;
     gap: 20px;
 }
+.section {
+    display: flex;
+    justify-content: center;
+    gap:30px;
+}
 .rgb {
     width : 90px;
     height: auto;
@@ -59,7 +64,21 @@ body {
     padding: 3px;
     border-radius: 10px;
 }
+.black{
+    width: 90px;
+    height: auto;
+    border: solid black 4px;
+    padding: 3px;
+    border-radius: 10px;
+}
 .eraser {
+    width: 90px;
+    height: auto;
+    border: solid black 4px;
+    padding: 3px;
+    border-radius: 10px;
+}
+.reset{
     width: 90px;
     height: auto;
     border: solid black 4px;
@@ -87,14 +106,14 @@ body {
     font-size: 16px;
 }
 .dimension{
-    border: solid #7F5A83 2px;
+    border: solid #7F5A83 4px;
     border-radius: 10px;
 }
 .customDimension {
     font-size: 28px;
     color: black;
     background-color: #7F5A83;
-    border: solid black 3px;
+    border: solid black 4px;
     border-radius: 15px;
     margin: 10px;
 }

@@ -4,12 +4,15 @@ const image32 = document.querySelector(".image-32");
 const image64 = document.querySelector(".image-64");
 const customDimension = document.querySelector(".customDimension");
 const rgb = document.querySelector(".rgb");
+const black = document.querySelector(".black");
 const eraser = document.querySelector(".eraser");
+const reset = document.querySelector(".reset");
 
 //variables and arrays
 let canvasSize = 16;
 let pixelSize = 640/canvasSize;
 let colorRGB = false;
+let colorBlack = true;
 let colorEraser = false;
 //functions
 
@@ -66,9 +69,8 @@ function getCustomDimension(){
     }
 
 }
-
+//runtime
 createCanvas();
-console.log(changeToRGB())
 //Changes canvasSize when icon clicked
 image16.addEventListener("click",() => { clearCanvas(); canvasSize=16; createCanvas();});
 image32.addEventListener("click",() => { clearCanvas(); canvasSize=32; createCanvas();});
@@ -83,17 +85,26 @@ rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false;});
 eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false;});
 
 //Highligt dimension choice image when hovered
-image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid orange 2px";});
-image16.addEventListener("mouseout",()=> {image16.style.cssText="border: solid #7F5A83 2px"});
+image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid orange 4px";});
+image16.addEventListener("mouseout",()=> {image16.style.cssText="border: solid #7F5A83 4px"});
 
-image32.addEventListener("mouseover",()=> {image32.style.cssText = "border: solid orange 2px"});
-image32.addEventListener("mouseout",()=> {image32.style.cssText="border: solid #7F5A83 2px"});
+image32.addEventListener("mouseover",()=> {image32.style.cssText = "border: solid orange 4px"});
+image32.addEventListener("mouseout",()=> {image32.style.cssText="border: solid #7F5A83 4px"});
 
-image64.addEventListener("mouseover",()=> {image64.style.cssText = "border: solid orange 2px"});
-image64.addEventListener("mouseout",()=> {image64.style.cssText="border: solid #7F5A83 2px"});
+image64.addEventListener("mouseover",()=> {image64.style.cssText = "border: solid orange 4px"});
+image64.addEventListener("mouseout",()=> {image64.style.cssText="border: solid #7F5A83 4px"});
+
+customDimension.addEventListener("mouseover", ()=> {customDimension.style.border = "solid orange 4px"});
+customDimension.addEventListener("mouseout", ()=> {customDimension.style.border = "solid black 4px"});
 
 rgb.addEventListener("mouseover", ()=> {rgb.style.border = "solid orange 4px"});
 rgb.addEventListener("mouseout", ()=> {rgb.style.border = "solid black 4px"});
 
+black.addEventListener("mouseover", ()=> {black.style.border = "solid orange 4px"});
+black.addEventListener("mouseout", ()=> {black.style.border = "solid black 4px"});
+
 eraser.addEventListener("mouseover", ()=> {eraser.style.border = "solid orange 4px"});
 eraser.addEventListener("mouseout", ()=> {eraser.style.border = "solid black 4px"});
+
+reset.addEventListener("mouseover", ()=> {reset.style.border = "solid orange 4px"});
+reset.addEventListener("mouseout", ()=> {reset.style.border = "solid black 4px"});
