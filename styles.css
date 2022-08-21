@@ -67,7 +67,7 @@ body {
 .black{
     width: 90px;
     height: auto;
-    border: solid black 4px;
+    border: solid orange 4px;
     padding: 3px;
     border-radius: 10px;
 }

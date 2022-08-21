@@ -57,6 +57,23 @@ function changeColor(){
         return "rgb(0,0,0)";
     }
 }
+function HighligthBox(){
+    if (colorBlack){
+        black.style.border = "solid orange 4px"
+        rgb.style.border = "solid black 4px"
+        eraser.style.border = "solid black 4px"
+    }
+    if (colorRGB){
+        black.style.border = "solid black 4px"
+        rgb.style.border = "solid orange 4px"
+        eraser.style.border = "solid black 4px"
+    }
+    if (colorEraser){
+        black.style.border = "solid black 4px"
+        rgb.style.border = "solid black 4px"
+        eraser.style.border = "solid orange 4px"
+    }
+}
 
 //Prompts the user for custom dimension and accepts only valid values
 function getCustomDimension(){
@@ -80,11 +97,17 @@ image64.addEventListener("click",() => { clearCanvas(); canvasSize=64; createCan
 customDimension.addEventListener("click", () => {getCustomDimension(); clearCanvas(); createCanvas();});
 
 //Add rgb mode when rgb button clicked
-rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false; colorBlack =false;});
+rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false; colorBlack =false; HighligthBox()});
+
 //Add eraser mode when eraser button clicked
-eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false; colorBlack =false});
+eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false; colorBlack =false; HighligthBox()});
+
 //Add black mode when black button clicked
-black.addEventListener("click",()=>{colorBlack = true; colorRGB=false; colorEraser = false;})
+black.addEventListener("click",()=>{colorBlack = true; colorRGB=false; colorEraser = false;HighligthBox()});
+
+//Reset the grid to all white
+reset.addEventListener("click", () => {clearCanvas(); createCanvas();})
+
 //Highligt dimension choice image when hovered
 image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid orange 4px";});
 image16.addEventListener("mouseout",()=> {image16.style.cssText="border: solid #7F5A83 4px"});
@@ -99,13 +122,13 @@ customDimension.addEventListener("mouseover", ()=> {customDimension.style.border
 customDimension.addEventListener("mouseout", ()=> {customDimension.style.border = "solid black 4px"});
 
 rgb.addEventListener("mouseover", ()=> {rgb.style.border = "solid orange 4px"});
-rgb.addEventListener("mouseout", ()=> {rgb.style.border = "solid black 4px"});
+rgb.addEventListener("mouseout", ()=> {if(!colorRGB){rgb.style.border = "solid black 4px"}});
 
 black.addEventListener("mouseover", ()=> {black.style.border = "solid orange 4px"});
-black.addEventListener("mouseout", ()=> {black.style.border = "solid black 4px"});
+black.addEventListener("mouseout", ()=> {if(!colorBlack){black.style.border = "solid black 4px"}});
 
 eraser.addEventListener("mouseover", ()=> {eraser.style.border = "solid orange 4px"});
-eraser.addEventListener("mouseout", ()=> {eraser.style.border = "solid black 4px"});
+eraser.addEventListener("mouseout", ()=> {if(!colorEraser){eraser.style.border = "solid black 4px"}});
 
 reset.addEventListener("mouseover", ()=> {reset.style.border = "solid orange 4px"});
 reset.addEventListener("mouseout", ()=> {reset.style.border = "solid black 4px"});
