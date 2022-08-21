@@ -53,7 +53,14 @@ body {
     gap: 20px;
 }
 .rgb {
-    width : 128px;
+    width : 90px;
+    height: auto;
+    border: solid black 4px;
+    padding: 3px;
+    border-radius: 10px;
+}
+.eraser {
+    width: 90px;
     height: auto;
     border: solid black 4px;
     padding: 3px;

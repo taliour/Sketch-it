@@ -4,11 +4,13 @@ const image32 = document.querySelector(".image-32");
 const image64 = document.querySelector(".image-64");
 const customDimension = document.querySelector(".customDimension");
 const rgb = document.querySelector(".rgb");
+const eraser = document.querySelector(".eraser");
 
 //variables and arrays
 let canvasSize = 16;
 let pixelSize = 640/canvasSize;
 let colorRGB = false;
+let colorEraser = false;
 //functions
 
 //It crates the drawing canvas
@@ -45,8 +47,11 @@ function changeColor(){
     if (colorRGB){
         return changeToRGB();
     }
+    else if(colorEraser){
+        return "rgb(255, 255, 255)";
+    }
     else{
-        return "rgb(0,0,0)"
+        return "rgb(0,0,0)";
     }
 }
 
@@ -73,7 +78,9 @@ image64.addEventListener("click",() => { clearCanvas(); canvasSize=64; createCan
 customDimension.addEventListener("click", () => {getCustomDimension(); clearCanvas(); createCanvas();});
 
 //Add rgb when rgb button clicked
-rgb.addEventListener("click", () => {colorRGB = !colorRGB});
+rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false;});
+//Add eraser mode when eraser button clicked
+eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false;});
 
 //Highligt dimension choice image when hovered
 image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid orange 2px";});
@@ -87,3 +94,6 @@ image64.addEventListener("mouseout",()=> {image64.style.cssText="border: solid #
 
 rgb.addEventListener("mouseover", ()=> {rgb.style.border = "solid orange 4px"});
 rgb.addEventListener("mouseout", ()=> {rgb.style.border = "solid black 4px"});
+
+eraser.addEventListener("mouseover", ()=> {eraser.style.border = "solid orange 4px"});
+eraser.addEventListener("mouseout", ()=> {eraser.style.border = "solid black 4px"});
