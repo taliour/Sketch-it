@@ -1,1 +1,2 @@
 # Sketch-it
+This is a project to practice my DOM skills in js. It's a simple canvas that you can draw with differents colors on it. You can customise the dimension between 1x1-100x100. In the future I hope to add custom color selection and make a slider for selecting dimensions. I hope you like it :)
