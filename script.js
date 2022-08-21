@@ -50,10 +50,10 @@ function changeColor(){
     if (colorRGB){
         return changeToRGB();
     }
-    else if(colorEraser){
+    if(colorEraser){
         return "rgb(255, 255, 255)";
     }
-    else{
+    if(colorBlack==true){
         return "rgb(0,0,0)";
     }
 }
@@ -79,11 +79,12 @@ image64.addEventListener("click",() => { clearCanvas(); canvasSize=64; createCan
 //Ask user for custom dimension when button pressed and resize the canvas for valid values only
 customDimension.addEventListener("click", () => {getCustomDimension(); clearCanvas(); createCanvas();});
 
-//Add rgb when rgb button clicked
-rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false;});
+//Add rgb mode when rgb button clicked
+rgb.addEventListener("click", () => {colorRGB = true; colorEraser =false; colorBlack =false;});
 //Add eraser mode when eraser button clicked
-eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false;});
-
+eraser.addEventListener("click", () => {colorEraser = true; colorRGB = false; colorBlack =false});
+//Add black mode when black button clicked
+black.addEventListener("click",()=>{colorBlack = true; colorRGB=false; colorEraser = false;})
 //Highligt dimension choice image when hovered
 image16.addEventListener("mouseover",()=> {image16.style.cssText = "border: solid orange 4px";});
 image16.addEventListener("mouseout",()=> {image16.style.cssText="border: solid #7F5A83 4px"});
