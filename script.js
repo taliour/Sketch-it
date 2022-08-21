@@ -26,7 +26,6 @@ function createCanvas() {
         pixel.classList.add("pixel");
         pixel.style.width = `${pixelSize}px`;
         pixel.style.height = `${pixelSize}px`;
-        console.log(pixel.style.height);
         canvas.appendChild(pixel);
         pixel.addEventListener('mouseover',()=> {pixel.style.backgroundColor = `${changeColor()}`;});
         
@@ -34,7 +33,6 @@ function createCanvas() {
 }
 
 function clearCanvas(){
-    console.log(canvas.childElementCount)
     while(canvas.firstChild){
         canvas.removeChild(canvas.firstChild);
     }
@@ -79,7 +77,8 @@ function HighligthBox(){
 function getCustomDimension(){
     let validChoice = false;
     while (!validChoice){
-        canvasSize = prompt("Choose a number between 4 and 100")
+        canvasSize = parseInt(prompt("Choose a number between 4 and 100"));
+        console.log(canvasSize)
         if (canvasSize<= 100 && canvasSize>0){
             validChoice = true;
         }
